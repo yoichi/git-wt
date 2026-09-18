@@ -118,6 +118,19 @@ func IsBareRoot(ctx context.Context) (bool, error) {
 	return rc.bare && !rc.worktree, nil
 }
 
+// IsInsideRepository reports whether the current directory is below a repository directory.
+func IsInsideRepository(ctx context.Context) (bool, error) {
+	cmd, err := gitCommand(ctx, "rev-parse", "--is-inside-git-dir")
+	if err != nil {
+		return false, err
+	}
+	out, err := cmd.Output()
+	if err != nil {
+		return false, err
+	}
+	return strings.TrimSpace(string(out)) == "true", nil
+}
+
 // gitDirs returns the git-dir and git-common-dir for the current repository.
 // Both paths are returned as absolute paths resolved by git.
 // git-dir points to the .git directory (or worktrees/X subdirectory for linked worktrees).
