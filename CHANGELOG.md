@@ -1,5 +1,7 @@
 # Changelog
 
+## [v0.30.1](https://github.com/yoichi/git-wt/compare/v0.30.0...v0.30.1) - 2026-10-23
+
 ## [v0.30.0](https://github.com/k1LoW/git-wt/compare/v0.29.3...v0.30.0) - 2026-10-08
 
 ### New Features 🎉
